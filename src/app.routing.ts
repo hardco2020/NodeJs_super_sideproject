@@ -19,7 +19,7 @@ export class AppRoute extends RouteBase {
   }
 
   public registerRoute(): void {
-    console.log(this.apiRoute)
+    //console.log(this.apiRoute)
     this.router.use('/api', this.apiRoute.router);
     this.router.use('/auth',this.authRoute.router);
   }

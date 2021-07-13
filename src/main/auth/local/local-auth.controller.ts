@@ -20,6 +20,7 @@ export class LocalAuthController extends ControllerBase {
         res: Response,
         next: NextFunction
       ): Promise<ResponseObject<FunctionStringCallback>> {
+        //發token
         passport.use(this.localAuthSvc.Strategy);
         const token = await this.localAuthSvc.authenticate(req, res, next);
         return this.formatResponse(token, HttpStatus.OK);

@@ -15,7 +15,7 @@ export abstract class RouteBase {
   }
   
   protected initial(): void {
-    console.log("測試")
+    //console.log("測試")
     this.registerRoute();
   }
   protected usePipe(prototype: any): any[] {

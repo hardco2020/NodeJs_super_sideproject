@@ -15,7 +15,7 @@ export class LocalAuthRoute extends RouteBase{
     protected registerRoute():void{
         this.router.post('/signup',
             express.json(),
-            this.usePipe(LocalAuthSignupPipe),
+            this.usePipe(LocalAuthSignupPipe), //在這邊確認送出的資訊的表單驗證
             this.responseHandler(this.controller.signup)
         );
         this.router.post(

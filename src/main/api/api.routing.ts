@@ -1,15 +1,21 @@
 import { RouteBase } from '../../bases/route.base';
 import { TodoRoute } from './todo/todo.routing';
+import { UserRoute } from './user/user.routing';
+import { PostRoute } from './post/post.routing';
 import JWT from 'express-jwt';
 export class ApiRoute extends RouteBase {
 
   private todoRoute = new TodoRoute();
+  private userRoute = new UserRoute();
+  private postRoute = new PostRoute();
   constructor() {
     super();
     //this.first();
   }
   protected initial():void{
     this.todoRoute = new TodoRoute();
+    this.userRoute = new UserRoute(); //初始化
+    this.postRoute = new PostRoute();
     super.initial();
   }
   protected registerRoute(): void {
@@ -24,8 +30,10 @@ export class ApiRoute extends RouteBase {
           }
         )
     );
-    console.log("密碼"+process.env.JWT_SIGN)
     this.router.use('/todos', this.todoRoute.router);
+    this.router.use('/users',this.userRoute.router);
+    this.router.use('/posts',this.postRoute.router);
+    //此處要新增user的route
   }
 
 }

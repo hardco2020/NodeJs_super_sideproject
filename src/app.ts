@@ -3,6 +3,7 @@ import path from 'path';
 import cors from 'cors';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
+//import morgan from 'morgan';
 import { TodoRoute } from './main/api/todo/todo.routing';
 import { LocalAuthRoute}  from './main/auth/local/local-auth.routing';
 import { AppRoute } from './app.routing';
@@ -16,6 +17,7 @@ export class App {
   private app = express();
 
   constructor() {
+    //this.setMorgan();
     this.setPassport();
     this.setEnvironment();
     this.setHelmet();
@@ -37,7 +39,9 @@ export class App {
   private setPassport(): void {
     passport.initialize();
   }
-
+  // private setMorgan():void{
+  //   t
+  // }
   private setHelmet(): void {
     this.app.use(helmet());
   }

@@ -15,7 +15,6 @@ export class ResponseTodoDTO extends ResponseDTOBase {
     this.completed = doc.completed;
     this.date  =doc.date;
     this.time = doc.time;
-
   }
 
 }

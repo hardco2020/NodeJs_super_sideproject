@@ -31,7 +31,7 @@ export class TodoController extends ControllerBase {
     public async addTodo(req: Request): Promise<ResponseObject<ResponseTodoDTO>>  {
         const { content,time,date } = req.body;
         const payload = new JWTPayloadDTO((req as any).payload); //payload裡有id跟username的屬性 將req當作payload來看
-        console.log(payload)
+        //console.log(payload)
         const dto = await this.todoSvc.addTodo(payload,content,time,date);
         return this.formatResponse(dto, HttpStatus.CREATED);
     }
